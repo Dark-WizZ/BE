@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Website</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+    header {
+      background-color: #4285f4;
+      color: #ffffff;
+      text-align: center;
+      padding: 10px 0;
+    }
+    main {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    h1, h2, h3, h4, h5, h6 {
+      color: #333333;
+      margin: 10px 0;
+    }
+    p {
+      margin: 10px 0;
+    }
+    strong, b {
+      font-weight: bold;
+    }
+    i {
+      font-style: italic;
+    }
+    em {
+      font-style: italic;
+    }
+    ul {
+      margin: 10px 0;
+      padding-left: 20px;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    th, td {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    form {
+      margin-top: 20px;
+    }
+    label {
+      font-weight: bold;
+    }
+    input, select, textarea {
+      width: calc(100% - 10px);
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+    button {
+      background-color: #4285f4;
+      color: #ffffff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #357ae8;
+    }
+    a{
+      text-decoration: none;
+      font-weight: 900;
+    }
+    .intro {
+      background-image: url('background.jpg');
+      background-size: cover;
+      background-position: center;
+      color: #ffffff;
+      text-align: center;
+      padding: 80px 0;
+    }
+
+    .intro h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .projects {
+      background-color: #f9f9f9;
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    .project-link {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px 20px;
+      background-color: #4285f4;
+      color: #ffffff;
+      border-radius: 3px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    footer{
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome to My Website</h1>
+  </header>
+  <main>
+    <h2>About Me</h2>
+    <p>Hello,I'm Mohamed Akram. I am a web enthusiast interested in learning and sharing web technologies. <em>HTML</em>, <strong>CSS</strong>, and <code>JavaScript</code> are my favorite tools.</p>
+    
+    <h2>Skills</h2>
+    <ul>
+      <li>Web Design</li>
+      <li>Frontend Development</li>
+      <li>Responsive Layouts</li>
+      <li>UI/UX Design</li>
+    </ul>
+    
+    <h2>Latest Projects</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Project</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Portfolio Website</td>
+          <td>A personal portfolio showcasing my skills and projects.</td>
+        </tr>
+        <tr>
+          <td>Sign Up Form</td>
+          <td>A sign-up form showcases proficiency in HTML, CSS, responsive design, and attention to detail.</td>
+        </tr>
+        <tr>
+          <td>Where's Wally</td>
+          <td>A simple game showcases my skill to integrate backend scoring for leaderboard</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="projects">
+      <h2>Check Out My Latest Projects</h2>
+      <p>These projects showcase my skills and creativity.</p>
+      <div class="project-links">
+        <a class="project-link" href="https://dark-wizz.github.io/portfolio/" target="_blank">Portfolio</a>
+        <a class="project-link" href="https://dark-wizz.github.io/sign-up_form/" target="_blank">Sign Up Form</a>
+        <a class="project-link" href="https://dark-wizz.github.io/wheres-wally/" target="_blank">Where's Wally</a>
+      </div>
+    </div>
+
+    <h2>Contact Me</h2>
+    <form>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name" required>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="4" placeholder="Enter your message" required></textarea>
+      <fieldset>
+        <legend>Additional Information</legend>
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" min="18" max="99">
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="agender">Agender</option>
+          <option value="abimegender">Abimegender</option>
+          <option value="adamasgender">Adamas gender</option>
+          <option value="aerogender">Aerogender</option>
+          <option value="aesthetigender">Aesthetigender</option>
+          <option value="affectugender">Affectugender</option>
+          <option value="agenderflux">Agenderflux</option>
+          <option value="alexigender">Alexigender</option>
+          <option value="aliusgender">Aliusgender</option>
+          <option value="amaregender">Amaregender</option>
+          <option value="ambigender">Ambigender</option>
+          <option value="ambonec">Ambonec</option>
+          <option value="amicagender">Amicagender</option>
+          <option value="androgyne">Androgyne</option>
+          <option value="anesigender">Anesigender</option>
+          <option value="angenital">Angenital</option>
+          <option value="anogender">Anogender</option>
+          <option value="anongender">Anongender</option>
+          <option value="antegender">Antegender</option>
+          <option value="anxiegender">Anxiegender</option>
+          <option value="apagender">Apagender</option>
+          <option value="apconsugender">Apconsugender</option>
+          <option value="astergender">Astergender</option>
+          <option value="astralgender">Astral gender</option>
+          <option value="autigender">Autigender</option>
+          <option value="autogender">Autogender</option>
+          <option value="axigender">Axigender</option>
+          <option value="bigender">Bigender</option>
+          <option value="biogender">Biogender</option>
+          <option value="blurgender">Blurgender</option>
+          <option value="boyflux">Boyflux</option>
+          <option value="burstgender">Burstgender</option>
+          <option value="caelgender">Caelgender</option>
+          <option value="cassgender">Cassgender</option>
+          <option value="cassflux">Cassflux</option>
+          <option value="cavusgender">Cavusgender</option>
+          <option value="cendgender">Cendgender</option>
+          <option value="ceterogender">Ceterogender</option>
+          <option value="ceterofluid">Ceterofluid</option>
+          <option value="cisgender">Cisgender</option>
+          <option value="cloudgender">Cloudgender</option>
+          <option value="collgender">Collgender</option>
+          <option value="colorgender">Colorgender</option>
+          <option value="commogender">Commogender</option>
+          <option value="condigender">Condigender</option>
+          <option value="deliciagender">Deliciagender</option>
+          <option value="demifluid">Demifluid</option>
+          <option value="demiflux">Demiflux</option>
+          <option value="demigender">Demigender</option>
+          <option value="domgender">Domgender</option>
+          <option value="duragender">Duragender</option>
+          <option value="egogender">Egogender</option>
+          <option value="epicene">Epicene</option>
+          <option value="esspigender">Esspigender</option>
+          <option value="exgender">Exgender</option>
+          <option value="existigender">Existigender</option>
+          <option value="femfluid">Femfluid</option>
+          <option value="femgender">Femgender</option>
+          <option value="fluidflux">Fluidflux</option>
+          <option value="gemigender">Gemigender</option>
+          <option value="genderblank">Genderblank</option>
+          <option value="genderflow">Genderflow</option>
+          <option value="genderfluid">Genderfluid</option>
+          <option value="genderfuzz">Genderfuzz</option>
+          <option value="genderflux">Genderflux</option>
+          <option value="genderpuck">Genderpuck</option>
+          <option value="genderqueer">Genderqueer</option>
+          <option value="genderwitched">Gender witched</option>
+          <option value="girlflux">Girlflux</option>
+          <option value="healgender">Healgender</option>
+          <option value="mirrorgender">Mirrorgender</option>
+          <option value="omnigender">Omnigender</option>
+          <option value="other">Other</option>
+        </select>
+      </fieldset>
+      <button type="submit">Send Message</button>
+    </form>
+  </main>
+  <footer>
+    <p>© 2023 MyWebsite. All rights reserved.</p>
+  </footer>
+</body>
+</html>

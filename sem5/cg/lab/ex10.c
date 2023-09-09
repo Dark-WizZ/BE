@@ -1,9 +1,9 @@
 #include<windows.h>
-#include<glut.h>
+#include<GL/glut.h>
 int c = 0;
 void init(){
-// For displaying the window
-color glClearColor(0, 1, 1, 0);
+// For displaying the window color 
+glClearColor(0, 1, 1, 0);
 // Choosing the type of projection
 glMatrixMode(GL_PROJECTION);
 // for setting the transformation which here is 2D

@@ -1,6 +1,6 @@
-#include <GL/glut.h>
-#include <stdio.h>
 #include <math.h>
+#include <GL/glut.h>
+
 GLfloat light0_ambient[] ={0.2, 0.2, 0.2, 1.0};
 GLfloat light0_diffuse[] ={0.0, 0.0, 0.0, 1.0};
 GLfloat light1_diffuse[] ={1.0, 0.0, 0.0, 1.0};
@@ -18,7 +18,7 @@ for (p = text; *p; p++)
 glutStrokeCharacter(GLUT_STROKE_ROMAN, *p);
 glPopMatrix();
 }
-Void display(void)
+void display(void)
 {
 static GLfloat amb[] ={0.4, 0.4, 0.4, 0.0};
 static GLfloat dif[] ={1.0, 1.0, 1.0, 0.0};

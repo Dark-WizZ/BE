@@ -1,0 +1,1 @@
+html, head, title, style, body, h1, h2, h3, h4, h5, h6, p, b, i, br, sup, sub, em, strong, code, pre, ol, li, ul, dl, dt, dd, table, tr, th, td, form, label, input, button, select, textarea, fieldset, legend, datalist, output, optgroup, option, frameset, frame 
