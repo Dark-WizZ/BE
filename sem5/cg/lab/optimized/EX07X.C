@@ -77,6 +77,7 @@ void rotate(int flag, float theta){
 		dp2.y[i]=dp1.y[i]+dp1.z[i]/2;
 	}
 }
+
 void main(){
 	clrscr();
 	init();
@@ -106,7 +107,7 @@ void main(){
 				break;
 			case 2:
 				printf("Enter the scaling factor(x,y,z): ");
-				scanf("%f%f%f",&dx,&dy,&dz);
+				scanf("%f%f%fl",&dx,&dy,&dz);
 				drawcube(p2);
 				scale();
 				drawcube(dp2);

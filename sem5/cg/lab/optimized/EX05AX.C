@@ -13,7 +13,6 @@ void codegen(float x, float y, int c[]){
 }
 
 void clip(int c[], float *x, float *y, float x1, float y1){
-	printf("x1->%f, y1->%f, x2->%f, y2->%f\n",*x,*y,x1,y1);
 	if(c[0]==1) {
 		*x = ((ymax-y1)/m)+x1; *y = ymax;
 		if (m==0) *x=x1;
