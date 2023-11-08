@@ -1,5 +1,6 @@
 #include <graphics.h>
 #include <math.h>
+
 struct points{
 	float x[8], y[8], z[8];
 };
@@ -64,20 +65,19 @@ void rotate(int flag, float theta){
 		dp1.y[i]=p1.y[i];
 		dp1.z[i]=p1.z[i];
 		if(flag==1){
-			dp1.y[i]=(p1.y[i]-y)*cos(theta)+(p1.z[i]-z)*sin(theta)+y;
+			dp1.y[i]=(p1.y[i]-y)*cos(theta)-(p1.z[i]-z)*sin(theta)+y;
 			dp1.z[i]=(p1.y[i]-y)*sin(theta)+(p1.z[i]-z)*cos(theta)+z;
 		}else if(flag==2){
-			dp1.x[i]=(p1.x[i]-x)*cos(theta)+(p1.z[i]-z)*sin(theta)+x;
+			dp1.x[i]=(p1.x[i]-x)*cos(theta)-(p1.z[i]-z)*sin(theta)+x;
 			dp1.z[i]=(p1.x[i]-x)*sin(theta)+(p1.z[i]-z)*cos(theta)+z;
 		}else if(flag==3){
-			dp1.x[i]=(p1.x[i]-x)*cos(theta)+(p1.y[i]-y)*sin(theta)+x;
+			dp1.x[i]=(p1.x[i]-x)*cos(theta)-(p1.y[i]-y)*sin(theta)+x;
 			dp1.y[i]=(p1.x[i]-x)*sin(theta)+(p1.y[i]-y)*cos(theta)+y;
 		}
 		dp2.x[i]=dp1.x[i]+dp1.z[i]/2;
 		dp2.y[i]=dp1.y[i]+dp1.z[i]/2;
 	}
 }
-
 void main(){
 	clrscr();
 	init();
@@ -107,7 +107,7 @@ void main(){
 				break;
 			case 2:
 				printf("Enter the scaling factor(x,y,z): ");
-				scanf("%f%f%fl",&dx,&dy,&dz);
+				scanf("%f%f%f",&dx,&dy,&dz);
 				drawcube(p2);
 				scale();
 				drawcube(dp2);
@@ -120,7 +120,7 @@ void main(){
 				printf("Enter rotaion angle: ");
 				scanf("%f",&d);
 				drawcube(p2);
-				rotate(ch,d*180/3.14);
+				rotate(ch,d*3.14/180);
 				drawcube(dp2);
 				break;
 			case 0:

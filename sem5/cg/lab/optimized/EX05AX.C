@@ -20,7 +20,6 @@ void clip(int c[], float *x, float *y, float x1, float y1){
 	if(c[1]==1){
 		*x = ((ymin-y1)/m)+x1; *y = ymin;
 		if(m==0) *x=x1;
-		printf("m=%f, x=%f\n",m,*x);getch();
 	}
 	if(c[2]==1){
 		*y = m*(xmax-x1)+y1; *x = xmax;

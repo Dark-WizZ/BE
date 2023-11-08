@@ -1,39 +1,28 @@
 # Project: Project1
-# Makefile created by Dev-C++ 4.9.9.2
+# Makefile created by Dev-C++ 5.11
 
-CPP  = g++.exe
-CC   = gcc.exe
-WINDRES = windres.exe
-RES  = 
-OBJ  = main.o ex09.o triangle.o test1.o $(RES)
-LINKOBJ  = main.o ex09.o triangle.o test1.o $(RES)
-LIBS =  -L"C:/Dev-Cpp/lib"   
-INCS =  -I"C:/Dev-Cpp/include" 
-CXXINCS =  -I"C:/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"C:/Dev-Cpp/include/c++/3.4.2/backward"  -I"C:/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"C:/Dev-Cpp/include/c++/3.4.2"  -I"C:/Dev-Cpp/include" 
-BIN  = Project1.exe
-CXXFLAGS = $(CXXINCS)  
-CFLAGS = $(INCS)  
-RM = rm -f
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = ex10sb.o
+LINKOBJ  = ex10sb.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc "C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib/libglu32.a" "C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib/libfreeglut.a" "C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib/libopengl32.a"
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = ex09.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
 
 .PHONY: all all-before all-after clean clean-custom
 
-all: all-before Project1.exe all-after
-
+all: all-before $(BIN) all-after
 
 clean: clean-custom
 	${RM} $(OBJ) $(BIN)
 
 $(BIN): $(OBJ)
-	$(CPP) $(LINKOBJ) -o "Project1.exe" $(LIBS)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
 
-main.o: main.c
-	$(CPP) -c main.c -o main.o $(CXXFLAGS)
-
-ex09.o: ex09.c
-	$(CPP) -c ex09.c -o ex09.o $(CXXFLAGS)
-
-triangle.o: triangle.cpp
-	$(CPP) -c triangle.cpp -o triangle.o $(CXXFLAGS)
-
-test1.o: test1.c
-	$(CPP) -c test1.c -o test1.o $(CXXFLAGS)
+ex10sb.o: ex10sb.c
+	$(CPP) -c ex10sb.c -o ex10sb.o $(CXXFLAGS)

@@ -6,8 +6,6 @@ void draw()
 		char ch;
 		int x1, x2, y1, y2, dx, dy;
 		int i;
-		x1 = x2 = 320;
-		y1 = y2 = 0;
 		for (i = 0; i < 10000; i++){
 				ch = random(3);
 				if (ch == 0){
@@ -21,7 +19,7 @@ void draw()
 				}
 				x1=(x2+dx)/2;
 				y1=(y2+dy)/2;
-				putpixel(x1, y1, WHITE);
+				putpixel(x1, y1, YELLOW);
 				x2 = x1;
 				y2 = y1;
 		}

@@ -1,9 +1,14 @@
 {
   "files.associations": {
+    "EX02.C": "cpp",
+    "EX04.C": "cpp",
     "EX04X.C": "cpp",
+    "EX05A.C": "cpp",
     "EX05AX.C": "cpp",
     "EX05BX.C": "cpp",
+    "EX06.C": "cpp",
     "EX06X.C": "cpp",
+    "EX07.C": "cpp",
     "EX07X.C": "cpp",
     "EX08X.C": "cpp"
   }

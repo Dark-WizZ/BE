@@ -3,8 +3,9 @@
 
 void main(){
 	float x1,x2,x3,y1,y2,y3;
-	float w1=5, w2=5, w3=635, w4=465;
-	float v1=425, v2=75, v3=550, v4=250;
+	float w1=5, w2=5, w3=635, w4=465, w[]={5,5,635,465};
+	float v1=425, v2=75, v3=550, v4=250, v[]={425, 75, 550, 250
+	};
 	float dx,dy;
 	int gd=DETECT, gm;
 	clrscr();
