@@ -6,9 +6,6 @@ class Prod:
     self.name=name
     self.products=products
   
-  def set(self, products):
-    self.products=products
-  
   def print(self):
     s = f'{self.name} -> '
     for p in self.products:
@@ -16,7 +13,7 @@ class Prod:
     s=s.rstrip('|')
     print(s)
     
-def normx():
+def trans():
   for x in p:
     alpha=[];beta=[]
     for product in x.products:
@@ -31,7 +28,7 @@ def normx():
       for i in range(len(alpha)):
         alpha[i]=f"{alpha[i]}{x.name}'"
       alpha.append(e)
-      x.set(beta)
+      x.products =beta
       p.append(Prod(f"{x.name}'",alpha))
         
     
@@ -44,6 +41,6 @@ for i in range(n):
   
 print('Productions:')
 for x in p: x.print()
-print('Normalizing...')
-normx()
+print('Transforming...')
+trans()
 for x in p: x.print()
