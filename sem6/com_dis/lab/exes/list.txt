@@ -1,0 +1,22 @@
+1.
+  a. implement of lexical analyzer
+  b. implement of lexical tool
+
+2. Regular expression to NFA
+
+3. Elimination of left recursion
+
+4. Left factoring
+
+5. Computation of first and follow sets
+
+6. Computation of leading and tailing sets
+
+7. Cosntruction of predicting parsing table
+
+8. Shift reduce parsing
+
+9. Computation of LR(0) items
+
+10. Itermediate code generation
+
