@@ -1,7 +1,7 @@
 e=u'\u03b5'
 p=[]
 
-class Prod:
+lass Prod:
   def __init__(self, name, products):
     self.name=name
     self.products=products
