@@ -17,16 +17,21 @@ class Prod:
 def trans():    
     for x in p:
         temp = x.products
+        x.products=[]
         temp.sort()
-        for j in range(len(temp)):
-            temp[j]=f'{temp[j]}{e}'
+        print("sorted:",temp)
+        for i in range(len(temp)):
+            temp[i]=f'{temp[i]}{e}'
         group=[]
         alpha=[]
         beta=[]
-        for j in range(len(temp)-1):
-            if(temp[0][:1]==temp[j+1][:1]):
-                group.append(temp[j+1])
-        for j in group: print('group',j)
+        matched = 0;
+        for i in range(len(temp)-1):
+            if (temp[0][:1]==temp[i+1][:1]):
+                group.append(temp[i+1])
+                matched=1
+        if matched==1: group.append(temp[0])
+        print("group:",group)
 
 n = int(input("No of production: "))
 for i in range(n):
