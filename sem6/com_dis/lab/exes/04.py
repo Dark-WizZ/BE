@@ -1,4 +1,3 @@
-
 e=u'\u03b5'
 p=[]
 
@@ -17,21 +16,39 @@ class Prod:
 def trans():    
     for x in p:
         temp = x.products
-        x.products=[]
         temp.sort()
-        print("sorted:",temp)
+        x.prdoucts=[]
         for i in range(len(temp)):
-            temp[i]=f'{temp[i]}{e}'
-        group=[]
-        alpha=[]
-        beta=[]
-        matched = 0;
-        for i in range(len(temp)-1):
-            if (temp[0][:1]==temp[i+1][:1]):
-                group.append(temp[i+1])
-                matched=1
-        if matched==1: group.append(temp[0])
-        print("group:",group)
+            temp[i] = f'{temp[i]}{e}'
+        while temp:
+            group=[]
+            alpha=''
+            beta=[]
+            for i in range(1,len(temp)):
+                if (temp[0][0] == temp[i][0]):
+                    group.append(temp[i])
+            if group:
+                group.insert(0,temp[0])
+                temp = [y for y in temp if y not in group]
+                print('temp -> ',temp)
+                print('group -> ',group)
+                f1=0
+                for c in group[0]:
+                    for j in range(1, len(group)):
+                        if(group[j][0] != c):
+                            f1=1
+                    if f1:
+                        p.append(Prod(f"{alpha[0]}'",group))
+                    else:
+                        alpha += c
+                        for j in range(1, len(group)):
+                            group[j] = group[j][1:]
+
+            else:
+                x.products.append(temp[0])
+                print('prodcuts -> ',x.products)
+                temp.pop(0)
+             
 
 n = int(input("No of production: "))
 for i in range(n):
