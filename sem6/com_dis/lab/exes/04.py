@@ -14,7 +14,8 @@ class Prod:
     print(s)
     
 def trans():    
-    for x in p:
+    #for x in p:
+        x = p[0]
         temp = x.products
         temp.sort()
         x.prdoucts=[]
@@ -30,8 +31,6 @@ def trans():
             if group:
                 group.insert(0,temp[0])
                 temp = [y for y in temp if y not in group]
-                print('temp -> ',temp)
-                print('group -> ',group)
                 f1=0
                 for c in group[0]:
                     for j in range(1, len(group)):
@@ -46,9 +45,7 @@ def trans():
 
             else:
                 x.products.append(temp[0])
-                print('prodcuts -> ',x.products)
-                temp.pop(0)
-             
+                temp.pop(0) 
 
 n = int(input("No of production: "))
 for i in range(n):
