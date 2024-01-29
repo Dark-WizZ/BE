@@ -1,4 +1,3 @@
-import graphviz
 import re
 
 t=0; f=1
