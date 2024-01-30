@@ -73,20 +73,16 @@ class NFA():
         t = self.end = b_nfa.end
 
 def create_nfa(ip):
-
+    nfa = NFA(0)
     if re.match(re.compile(r'^[a-z]$'), ip):
-        nfa = NFA(0)
         nfa.gen_single(ip)
-        return nfa.paths
     elif re.match(re.compile(r'^[a-z]\*$'), ip):
-        nfa = NFA(0)
         nfa.gen_star(ip)
-        return nfa.paths
-    elif True or re.match(re.compile(r'^[a-z]\/[a-z]$'), ip):
-        nfa = NFA(0)
-        a='a*'; b='b*'
-        nfa.gen_concat(a,b)
-        return nfa.paths
+    elif re.match(re.compile(r'^[a-z]\*? \/ [a-z]\*?$'), ip):
+        x = ip.split() 
+        a=x[0]; b=x[2]
+        nfa.gen_or(a,b)
+    return nfa.paths
 
 def tab_gen(v):
     ips = list(set([e for e1, e2, e in v]))
