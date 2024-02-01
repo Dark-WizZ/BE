@@ -6,16 +6,24 @@ tokens = (
 'MINUS',
 'TIMES',
 'DIVIDE',
-'LPAREN',
-'RPAREN',
+'HEADERINCLUDE',
+'ID',
+'OPERATOR',
+'DELIMITER',
+'PARENTHESIS',
+'HEADER'
 )
 
 t_PLUS = r'\+'
 t_MINUS = r'-'
 t_TIMES = r'\*'
 t_DIVIDE = r'/'
-t_LPAREN = r'\('
-t_RPAREN = r'\)'
+t_PARENTHESIS = r'[\(\)\{\}]'
+t_DELIMITER = r'[;,]'
+t_OPERATOR = r'[+\-*/=<>]'
+t_ID = r'[a-zA-Z_]\w*'
+t_HEADERINCLUDE=r'\#include'
+t_HEADER=r'<\w+.h>'
 
 def t_SPACE(t):
   r'\ '
@@ -37,8 +45,14 @@ def t_error(t):
 lexer = lex.lex()
 
 data = '''
-3 + 4 *
-10 + -20 *2
+ #include<conio.h>
+    if x > 5 
+    {
+        y = 10;
+    } else {
+        y = 5;
+    }
+    print(y);
 '''
 
 lexer.input(data)
