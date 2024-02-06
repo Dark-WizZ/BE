@@ -13,13 +13,13 @@ class NFA():
 
     def star(self):
         nfa = self.rearrange(1)
-        s=nfa.s
-        f=nfa.f
-        p=[(0,s,e),(0,f+1,e)]
-        p+=nfa.paths
-        p+=[(f,s,e),(f,f+1,e)]
-        self.paths=p
-        self.f=nfa.f+1
+        s = nfa.s
+        f = nfa.f
+        p = [(0,s,e),(0,f+1,e)]
+        p += nfa.paths
+        p += [(f,s,e),(f,f+1,e)]
+        self.paths = p
+        self.f = nfa.f+1
 
     def __or__(self, o):
         nfa1 = self.rearrange(1)
@@ -31,6 +31,7 @@ class NFA():
         p += [(f1, f2+1, e),(f2, f2+1, e)]
         nfa = NFA(0,'')
         nfa.paths = p
+        nfa.s = 0
         nfa.f = f2+1
         return nfa
 
@@ -38,6 +39,7 @@ class NFA():
         nfa1 = copy.deepcopy(self)
         nfa2 = o.rearrange(self.f)
         nfa1.paths += nfa2.paths
+        nfa1.f=nfa2.f
         return nfa1
 
     def rearrange(self, s):
@@ -48,37 +50,90 @@ class NFA():
         temp.f += s
         return temp
 
-# nfa1 = NFA(0,'a')
-# nfa1.star()
-# nfa2 = NFA(0,'b')
-# nfa2.star()
-# nfa=nfa1+nfa2
-# nfa=nfa1|nfa2
-# nfa += nfa2
-# print(nfa.paths)
+    def print(self):
+        print('start: ',self.s,'end: ',self.f)
+        print(self.paths)
 
-ip = 'a b* / b j'
+ip = input('enter...')
 ips = ip.split()
 
 pros=[]
-for e in ips:
-    if re.match(re.compile(r'^[a-z]$'), e):
-        pros.append(NFA(0,e))
-    elif re.match(re.compile(r'^[a-z]\*$'), e):
-        nfa = NFA(0,e[0])
+for i in ips:
+    if re.match(re.compile(r'^[a-z]$'), i):
+        pros.append(NFA(0,i))
+    elif re.match(re.compile(r'^[a-z]\*$'), i):
+        nfa = NFA(0,i[0])
         nfa.star()
         pros.append(nfa)
     else:
-        pros.append(e)
+        pros.append(i)
 
+print('pros debug..')
 for x in pros:
     if isinstance(x, NFA):
-        print(x.paths)
+        x.print()
     else:
         print(x)
 
-# graph = graphviz.Digraph(format='png',graph_attr={'rankdir': 'LR'})
-# for (s,d,l) in nfa.paths:
-#     graph.edge(str(s), str(d), label=l)
+ors=[]
+
+while(len(pros) > 1):
+    if(isinstance(pros[0],NFA) and isinstance(pros[1],NFA)):
+        temp = pros[0] + pros[1]
+        pros.pop(0); pros.pop(0)
+        pros.insert(0, temp)
+
+    else:
+        ors += pros[:1]
+
+        pros.pop(0)
+        if pros:
+            pros.pop(0)
+
+ors+=pros
+
+print('ors debug.. ')
+for x in ors:
+    if isinstance(x, NFA):
+        x.print()
+    else:
+        print(x)
+
+while(len(ors)>1):
+    temp = ors[0] | ors[1]
+    ors.pop(0); ors.pop(0)
+    ors.insert(0, temp)
+
+print('ors debg..')
+
+for x in ors:
+    if isinstance(x, NFA):
+        x.print()
+    else:
+        print(x)
+
+graph = graphviz.Digraph(format='png',graph_attr={'rankdir': 'LR'})
+for (s,d,l) in ors[0].paths:
+    graph.edge(str(s), str(d), label=l)
+
+graph.view()
+
+# print('sandboxing..')
 #
-# graph.view()
+# a = NFA(0,'')
+# print('a: ')
+# print(a.s, a.f)
+# b = NFA(0,'')
+# print('b: ')
+# print(b.s,b.f)
+
+
+# a.paths = [(0, 1, 'a'), (1, 2, 'ε'), (1, 4, 'ε'), (2, 3, 'b'), (3, 2, 'ε'), (3, 4, 'ε')]
+# a.s = 0
+# a.f = 4
+# b.paths = [(0, 1, 'b'), (1, 2, 'j')]
+# b.s=0
+# b.f=2
+# c=a|b
+#
+# print(c.paths)
