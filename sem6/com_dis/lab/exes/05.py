@@ -42,62 +42,36 @@ def calc_first():
                     p[i].first.extend(f)
                     c+=1
                     if c == len(x): break
-                
+        p[i].first = list(set(p[i].first))
+
 def calc_follow():
-    # Initialize follow sets for all non-terminal symbols
-    for prod in p:
-        prod.follow = []
-
-    # Add $ to follow(S), where S is the start symbol
+    print('---In follow---')
+    #stating symbol always contains $
     p[0].follow.append('$')
-
-    # Iterate until there are no changes in any follow sets
-    while True:
-        updated = False
-        for prod in p:
-            for i, product in enumerate(prod.products):
-                for j, symbol in enumerate(product):
-                    if is_terminal(symbol):
-                        continue
-
-                    if j == len(product) - 1:
-                        # If the non-terminal symbol is at the end of the production
-                        # Add follow(prod.name) to follow(symbol)
-                        for s in prod.follow:
-                            if s not in find_prod(symbol).follow:
-                                find_prod(symbol).follow.append(s)
-                                updated = True
-                    else:
-                        # If there are symbols after the non-terminal symbol
-                        # Add first(symbols after non-terminal symbol) to follow(symbol),
-                        # except epsilon ('e')
-                        next_symbols = product[j+1:]
-                        first_set = []
-                        for s in next_symbols:
-                            if is_terminal(s):
-                                first_set.append(s)
-                                break
-                            else:
-                                first_set.extend(find_prod(s).first)
-                                if 'e' not in find_prod(s).first:
-                                    break
+    for x in p:
+        for y in p:
+            for pr in y.products:
+                for c in range(len(pr)):
+                    if pr[c] == x.name:
+                        if c+1 >= len(pr):
+                            x.follow.extend(y.follow)
+                        elif is_terminal(pr[c+1]):
+                            x.follow.append(pr[c+1])
+                        elif 'e' not in first(pr[c+1]):
+                            x.follow.extend(first(pr[c+1]))
                         else:
-                            # If epsilon ('e') is in all first sets, add follow(prod.name) to follow(symbol)
-                            for s in prod.follow:
-                                if s not in find_prod(symbol).follow:
-                                    find_prod(symbol).follow.append(s)
-                                    updated = True
-                            continue
+                            x.follow.extend(first(pr[c+1]) + follow(pr[c+1]))
+                        x.follow =  list(set(x.follow)-{'e'})
+def first(name):
+    for x in p:
+        if name == x.name:
+            return x.first 
+             
+def follow(name):
+    for x in p:
+        if name == x.name:
+            return x.follow
 
-                        # Add all symbols in first_set except epsilon ('e') to follow(symbol)
-                        for s in first_set:
-                            if s != 'e' and s not in find_prod(symbol).follow:
-                                find_prod(symbol).follow.append(s)
-                                updated = True
-
-        # Break if no changes were made in any follow sets
-        if not updated:
-            break
 # n = int(input("No of production: "))
 # for i in range(n):
 #       ip = input(f"Production {i+1}: ")
