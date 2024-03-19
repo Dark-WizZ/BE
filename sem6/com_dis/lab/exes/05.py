@@ -38,7 +38,11 @@ def calc_first():
                 p[i].first.extend(f)
                 c=1
                 while 'e' in f:
-                    f=find_prod(x[c]).first
+                    if is_terminal(x[c]):
+                        f=x[c]
+                    else:
+                        f=find_prod(x[c]).first
+
                     p[i].first.extend(f)
                     c+=1
                     if c == len(x): break
@@ -59,9 +63,32 @@ def calc_follow():
                             x.follow.append(pr[c+1])
                         elif 'e' not in first(pr[c+1]):
                             x.follow.extend(first(pr[c+1]))
-                        else:
+                        elif follow(pr[c+1]):
                             x.follow.extend(first(pr[c+1]) + follow(pr[c+1]))
+                        else:
+                            x.follow.extend(first(pr[c+1]) + find_follow(find_prod(pr[c+1])))
                         x.follow =  list(set(x.follow)-{'e'})
+
+def find_follow(x):
+        for y in p:
+            for pr in y.products:
+                for c in range(len(pr)):
+                    if pr[c] == x.name:
+                        if c+1 >= len(pr):
+                            x.follow.extend(y.follow)
+                        elif is_terminal(pr[c+1]):
+                            x.follow.append(pr[c+1])
+                        elif 'e' not in first(pr[c+1]):
+                            x.follow.extend(first(pr[c+1]))
+                        elif follow(pr[c+1]):
+                            x.follow.extend(first(pr[c+1]) + follow(pr[c+1]))
+                        else:
+                            x.follow.extend(first(pr[c+1]) + find_follow(find_prod(pr[c+1])))
+                        x.follow =  list(set(x.follow)-{'e'})
+        return x.follow
+
+    
+
 def first(name):
     for x in p:
         if name == x.name:
@@ -85,7 +112,19 @@ input = ['S -> aBDh',
          'D -> EF',
          'E -> g | e',
          'F -> f | e']
-n = 6 
+
+input1 = [
+        'S -> ACB | CbB | Ba',
+        'A -> da | BC',
+        'B -> g | e',
+        'C -> h | e'
+        ]
+input = [
+        'A -> aBZ',
+        'Z -> dZ | e',
+        'B -> b',
+        'C -> g'
+        ]
 for x in input:
       ip = x
       name, prods = ip.split(' -> ')
