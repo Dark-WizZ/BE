@@ -91,9 +91,6 @@ for i in range(n):
       products = prods.split(' | ')
       p.append(Prod(name, products))
 
-print('Productions:')
-for x in p: x.print()
-
 calc_first()
 calc_follow()
 
