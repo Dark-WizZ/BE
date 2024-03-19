@@ -49,26 +49,10 @@ def calc_first():
         p[i].first = list(set(p[i].first))
 
 def calc_follow():
-    print('---In follow---')
-    #stating symbol always contains $
     p[0].follow.append('$')
     for x in p:
-        for y in p:
-            for pr in y.products:
-                for c in range(len(pr)):
-                    if pr[c] == x.name:
-                        if c+1 >= len(pr):
-                            x.follow.extend(y.follow)
-                        elif is_terminal(pr[c+1]):
-                            x.follow.append(pr[c+1])
-                        elif 'e' not in first(pr[c+1]):
-                            x.follow.extend(first(pr[c+1]))
-                        elif follow(pr[c+1]):
-                            x.follow.extend(first(pr[c+1]) + follow(pr[c+1]))
-                        else:
-                            x.follow.extend(first(pr[c+1]) + find_follow(find_prod(pr[c+1])))
-                        x.follow =  list(set(x.follow)-{'e'})
-
+        find_follow(x)
+        
 def find_follow(x):
         for y in p:
             for pr in y.products:
@@ -99,34 +83,10 @@ def follow(name):
         if name == x.name:
             return x.follow
 
-# n = int(input("No of production: "))
-# for i in range(n):
-#       ip = input(f"Production {i+1}: ")
-#       name, prods = ip.split(' -> ')
-#       products = prods.split(' | ')
-#       p.append(Prod(name, products))
-  
-input = ['S -> aBDh',
-         'B -> cC',
-         'C -> bC | e',
-         'D -> EF',
-         'E -> g | e',
-         'F -> f | e']
-
-input1 = [
-        'S -> ACB | CbB | Ba',
-        'A -> da | BC',
-        'B -> g | e',
-        'C -> h | e'
-        ]
-input = [
-        'A -> aBZ',
-        'Z -> dZ | e',
-        'B -> b',
-        'C -> g'
-        ]
-for x in input:
-      ip = x
+n = int(input("No of production: "))
+print("Epsilon = e")
+for i in range(n):
+      ip = input(f"Production {i+1}: ")
       name, prods = ip.split(' -> ')
       products = prods.split(' | ')
       p.append(Prod(name, products))
