@@ -2,7 +2,7 @@ gram = {
     "S":  ["S+S", "S*S",'S-S','(S)', "id"]
 }
 start = "S"
-inp = "id+id-(id+id)$"
+inp = "(id+id)$"
 stack = "$"
 
 print(f'{"Stack": <15}' + "|" + f'{"Input Buffer": <15}' + "|" + f'Parsing Action')
