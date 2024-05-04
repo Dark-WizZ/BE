@@ -39,8 +39,6 @@ public class student_excel_read {
     }
   }
   public static void main(String[] args) throws IOException {
-    // TODO Auto-generated method stub
-    // TODO Auto-generated method stub
     student_excel_read test = new student_excel_read();
     test.setInputFile("C:\\Users\\nehru\\Desktop\\Studentnew.xls");
     test.read();
