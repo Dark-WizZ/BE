@@ -27,9 +27,9 @@ def trans():
             beta[i]=f"{beta[i]}{x.name}'"
         for i in range(len(alpha)):
             alpha[i]=f"{alpha[i]}{x.name}'"
-            alpha.append(e)
-            x.products =beta
-            p.append(Prod(f"{x.name}'",alpha))
+        alpha.append(e)
+        x.products =beta
+        p.append(Prod(f"{x.name}'",alpha))
         
     
 n = int(input("No of production: "))

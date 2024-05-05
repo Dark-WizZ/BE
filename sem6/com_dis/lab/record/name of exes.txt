@@ -1,0 +1,9 @@
+Implementation of Lexical Analyzer
+Implementation of Lexical Tool
+Regular Expression to NFA
+Elimination of Left Recursion
+Left Factoring
+Computation of First and Follow Sets
+Recursive Descent Parser
+Implementation of Shift Reduce Parsing Algorithm
+Implementation of Intermediate Code Generator
